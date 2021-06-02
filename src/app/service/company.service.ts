@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { APIEndpoints } from '../helper/api-endpoints';
 import { Company } from '../model/company';
 
 @Injectable({
@@ -7,29 +8,25 @@ import { Company } from '../model/company';
 })
 export class CompanyService {
 
-  private url: string;
-
   registerCompany(company: Company) {
     console.log(`calling company api -- register`, company);
-    return this.httpClient.post<Company>(`${this.url}/register`, company);
+    return this.httpClient.post<Company>(`${APIEndpoints.API_ENDPOINT_COMPANY}/register`, company);
   }
 
   getCompany(companyCode: string) {
     console.log(`calling company api -- info`, companyCode);
-    return this.httpClient.get<Company>(`${this.url}/info/${companyCode}`);
+    return this.httpClient.get<Company>(`${APIEndpoints.API_ENDPOINT_COMPANY}/info/${companyCode}`);
   }
 
   getAllCompanies() {
     console.log(`calling company api -- getall`);
-    return this.httpClient.get<Company[]>(`${this.url}/getall`);
+    return this.httpClient.get<Company[]>(`${APIEndpoints.API_ENDPOINT_COMPANY}/getall`);
   }
 
   deleteCompany(companyCode: string) {
     console.log(`calling company api -- delete`);
-    return this.httpClient.delete(`${this.url}/delete/${companyCode}`);
+    return this.httpClient.delete(`${APIEndpoints.API_ENDPOINT_COMPANY}/delete/${companyCode}`);
   }
 
-  constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:8092/company-service/api/v1.0/market/company';
-  }
+  constructor(private httpClient: HttpClient) { }
 }
