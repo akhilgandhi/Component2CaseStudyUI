@@ -1,0 +1,9 @@
+main {
+    box-sizing: border-box;
+    display: block;
+    padding-top: 130px;
+    padding-bottom: 84px;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+}

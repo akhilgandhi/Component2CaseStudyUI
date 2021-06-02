@@ -1,0 +1,58 @@
+<mat-card class="register-card" [class.mat-elevation-z8]="active">
+    <br>
+    <mat-card-title>Register Company</mat-card-title>
+    <div class="register-form">
+        <br>
+        <br>
+        <form [formGroup]="registerForm" #registerFormDir="ngForm" (ngSubmit)="submitCompany(registerFormDir)">
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Company code</mat-label>
+                <input matInput type="text" id="companyCode" name="companyCode" formControlName="companyCode"
+                    class="companyCode" [(ngModel)]="company.companyCode">
+                <mat-error>{{ getCompanyCodeBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Enter company name</mat-label>
+                <input matInput type="text" id="companyName" name="companyName" formControlName="companyName"
+                    class="companyName" [(ngModel)]="company.companyName">
+                <mat-error>{{ getCompanyNameBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Enter company CEO</mat-label>
+                <input matInput type="text" id="companyCEO" name="companyCEO" formControlName="companyCEO"
+                    class="companyCEO" [(ngModel)]="company.companyCEO">
+                <mat-error>{{ getCompanyCEOBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Enter company turnover</mat-label>
+                <input matInput type="text" id="companyTurnOver" name="companyTurnOver"
+                    formControlName="companyTurnOver" class="companyTurnOver" [(ngModel)]="company.companyTurnOver">
+                <mat-error>{{ getCompanyTurnOverBlankMessage() }}</mat-error>
+                <mat-error>{{ getCompanyTurnOverMinMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Enter company website</mat-label>
+                <input matInput type="text" id="companyWebsite" name="companyWebsite" formControlName="companyWebsite"
+                    class="companyWebsite" [(ngModel)]="company.companyWebsite">
+                <mat-error>{{ getCompanyWebsiteBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="register-form-field-wrapper" appearance="outline">
+                <mat-label>Enter stock exchange company is enlisted in</mat-label>
+                <input matInput type="text" id="companyStockExchange" name="companyStockExchange"
+                    formControlName="companyStockExchange" class="companyStockExchange"
+                    [(ngModel)]="company.stockExchange">
+                <mat-error>{{ getCompanyStockExchangeBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <div class="register-done-btn-wrapper">
+                <button mat-button type="submit" [disabled]="!registerForm.valid" color="accent">Submit</button>
+                <button mat-button type="button" (click)="resetRegisterForm(registerFormDir)" color="accent">Reset</button>
+            </div>
+        </form>
+    </div>
+</mat-card>

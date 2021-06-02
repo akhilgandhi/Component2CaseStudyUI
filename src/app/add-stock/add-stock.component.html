@@ -1,0 +1,37 @@
+<mat-card class="stock-card" [class.mat-elevation-z8]="active">
+    <br>
+    <mat-card-title>Add Stock</mat-card-title>
+    <div class="stock-form">
+        <br>
+        <br>
+        <form [formGroup]="stockForm" #stockFormDir="ngForm" (ngSubmit)="submitStock(stockFormDir)">
+            <mat-form-field class="stock-form-field-wrapper" appearance="outline">
+                <mat-label>Stock id</mat-label>
+                <input matInput type="text" id="stockId" name="stockId"
+                    formControlName="stockId" class="stockId" [(ngModel)]="stock.stockId">
+                <mat-error>{{ getStockIdBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="stock-form-field-wrapper" appearance="outline">
+                <mat-label>Enter company code</mat-label>
+                <input matInput type="text" id="companyCode" name="companyCode"
+                    formControlName="companyCode" class="companyCode" [(ngModel)]="stock.companyCode">
+                <mat-error>{{ getCompanyCodeBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br><br>
+            <mat-form-field class="stock-form-field-wrapper" appearance="outline">
+                <mat-label>Enter stock price</mat-label>
+                <input matInput type="text" id="stockPrice" name="stockPrice"
+                    formControlName="stockPrice" class="stockPrice" [(ngModel)]="stock.stockPrice">
+                <mat-error>{{ getStockPriceBlankMessage() }}</mat-error>
+            </mat-form-field>
+            <br>
+            <br>
+            <div class="stock-done-btn-wrapper">
+                <button mat-button type="submit" [disabled]="!stockForm.valid" color="accent">Submit</button>
+                <button mat-button type="button" (click)="resetStockForm(stockFormDir)" color="accent">Reset</button>
+            </div>
+        </form>
+    </div>
+</mat-card>
+

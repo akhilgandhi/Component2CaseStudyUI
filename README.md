@@ -1,27 +1,14 @@
 # EStockApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+This application acts as UI for E-Stock Market backend. This application has six tabs:
 
-## Development server
+* HOME: User have to click authenticate to get the security token from backend for write operations (Add Company, Delete Company and Add Stock)
+* ADD COMPANY: Authenticated user can register a company by providing the company details.
+* GET COMPANY: User can get a company details by entering the company code in the Search Box. User can also delete the searched company from here.
+* LIST COMPANIES: List of companies will be displayed on this tab. User can also delete a company from here.
+* ADD STOCK: Authenticated user can add a stock by providing the company code and stock price.
+* VIEW STOCKS: List of stocks added between start and end date will be displayed on this tab when a company code is provided.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# To Run in Development environment
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Go to the EStockApp folder and from terminal execute ```ng serve --open```. The application will be available at ```http://localhost:4200/```
