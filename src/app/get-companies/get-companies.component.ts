@@ -13,8 +13,9 @@ export class GetCompaniesComponent implements OnInit {
   panelOpenState = false;
 
   companies: Array<Company>;
-  
-  constructor(private companyService: CompanyService, private router: Router) { 
+  isPresent = false;
+
+  constructor(private companyService: CompanyService, private router: Router) {
     this.companies = [];
   }
 
@@ -26,6 +27,9 @@ export class GetCompaniesComponent implements OnInit {
     this.companyService.getAllCompanies().subscribe(
       data => {
         this.companies = data;
+        if (this.companies.length > 0) {
+          this.isPresent = true;
+        }
       },
       err => {
         console.log('retrieving companies has errors...', err);
@@ -33,17 +37,17 @@ export class GetCompaniesComponent implements OnInit {
     );
   }
 
-  deleteCompany(companyCode: string): void { 
+  deleteCompany(companyCode: string): void {
     this.companyService.deleteCompany(companyCode).subscribe(
       data => {
         console.log('Delete successfull...', data);
-        
+
         // save current route first
         const currentRoute = this.router.url;
-    
+
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-            this.router.navigate([currentRoute]); // navigate to same route
-        }); 
+          this.router.navigate([currentRoute]); // navigate to same route
+        });
       },
       err => {
         console.log('Error while delete...', err.message);

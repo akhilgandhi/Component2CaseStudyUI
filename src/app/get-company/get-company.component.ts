@@ -12,6 +12,7 @@ export class GetCompanyComponent implements OnInit {
 
   active = true;
   company: Company;
+  isPresent = false;
 
   constructor(private companyService: CompanyService, private router: Router) {
     this.company = new Company();
@@ -29,6 +30,7 @@ export class GetCompanyComponent implements OnInit {
         data => {
           console.log('company data... ', data);
           this.company = data;
+          this.isPresent = true;
         },
         err => {
           console.log('error...', err);
